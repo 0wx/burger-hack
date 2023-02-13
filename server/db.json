@@ -1,0 +1,78 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Classic Burger",
+      "description": "A delicious, juicy beef patty served on a toasted bun with lettuce, tomato, and cheese.",
+      "price": 8,
+      "imgUrl": "https://example.com/classic-burger.jpg",
+      "authorId": 123,
+      "categoryId": 1,
+      "Category": { "id": 1, "name": "Burgers" },
+      "createdAt": "2022-12-01T12:00:00Z",
+      "updatedAt": "2022-12-01T12:00:00Z",
+      "Ingredients": [
+        { "id": 1, "itemId": 1, "name": "Beef patty" },
+        { "id": 2, "itemId": 1, "name": "Toasted bun" },
+        { "id": 3, "itemId": 1, "name": "Lettuce" },
+        { "id": 4, "itemId": 1, "name": "Tomato" },
+        { "id": 5, "itemId": 1, "name": "Cheese" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Cheese Burger",
+      "description": "A juicy beef patty served on a toasted bun with melted cheese, lettuce, and pickles.",
+      "price": 9,
+      "imgUrl": "https://example.com/cheese-burger.jpg",
+      "authorId": 456,
+      "categoryId": 1,
+      "Category": {
+        "id": 1,
+        "name": "Burgers"
+      },
+      "createdAt": "2022-12-02T12:00:00Z",
+      "updatedAt": "2022-12-02T12:00:00Z",
+      "Ingredients": [
+        {
+          "id": 6,
+          "itemId": 2,
+          "name": "Beef patty"
+        },
+        {
+          "id": 7,
+          "itemId": 2,
+          "name": "Toasted bun"
+        },
+        {
+          "id": 8,
+          "itemId": 2,
+          "name": "Melted cheese"
+        },
+        {
+          "id": 9,
+          "itemId": 2,
+          "name": "Lettuce"
+        },
+        {
+          "id": 10,
+          "itemId": 2,
+          "name": "Pickles"
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    { "id": 1, "itemId": 1, "name": "Beef patty" },
+    { "id": 2, "itemId": 1, "name": "Toasted bun" },
+    { "id": 3, "itemId": 1, "name": "Lettuce" },
+    { "id": 4, "itemId": 1, "name": "Tomato" },
+    { "id": 5, "itemId": 1, "name": "Cheese" },
+    { "id": 6, "itemId": 2, "name": "Beef patty" },
+    { "id": 7, "itemId": 2, "name": "Toasted bun" },
+    { "id": 8, "itemId": 2, "name": "Melted cheese" },
+    { "id": 9, "itemId": 2, "name": "Lettuce" },
+    { "id": 10, "itemId": 2, "name": "Pickles" }
+  ],
+  "categories": [{ "id": 1, "name": "Burgers" }]
+}
