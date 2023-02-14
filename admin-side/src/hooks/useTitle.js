@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 
-export const useTitle = (_title = 'Burger Hack') => {
-  const [title, _setTitle] = useState(_title)
+export const useTitle = (_title) => {
+  const [title, _setTitle] = useState(
+    _title ? _title + ' - Burger Hack Admin' : 'Burger Hack Admin'
+  )
   useEffect(() => {
     document.title = title
   }, [title])
@@ -11,7 +13,7 @@ export const useTitle = (_title = 'Burger Hack') => {
       _setTitle(title)
       return
     }
-    _setTitle(title + ' - Burger Hack')
+    _setTitle(title + ' - Burger Hack Admin')
   }
   return { title, setTitle }
 }
