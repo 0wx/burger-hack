@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <div className='h-16 flex items-center px-11 fixed w-full justify-between bg-base-300 shadow-sm bg-opacity-50 backdrop-blur'>
+    <div className='h-16 flex items-center px-11 fixed w-full justify-between bg-base-300 shadow-sm bg-opacity-50 backdrop-blur z-20'>
       <Link to='/'>
         <div className='font-extrabold text-2xl flex items-center gap-4'>
           Burger Hack
