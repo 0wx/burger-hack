@@ -1,6 +1,6 @@
 import { useTitle } from '../../hooks/useTitle'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import Navbar from '../organisms/Navbar'
+import Sidebar from '../organisms/Sidebar'
 
 export default function MainLayout({ children, nosidebar, title }) {
   useTitle(title)
