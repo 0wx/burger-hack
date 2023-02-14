@@ -3,8 +3,8 @@ import LoginForm from '../components/molecules/LoginForm'
 
 export default function Login() {
   return (
-    <MainLayout>
-      <div className='flex items-center justify-center h-full'>
+    <MainLayout nosidebar title="Login Page">
+      <div className='flex justify-center h-full pt-[20vh]'>
         <div className='prose max-w-xs'>
           <h1>Login</h1>
           <LoginForm />
