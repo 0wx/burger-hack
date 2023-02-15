@@ -5,6 +5,7 @@ import Items from '../pages/Items'
 import Login from '../pages/Login'
 import Categories from '../pages/Categories'
 import Admins from '../pages/Admins'
+import AddItems from '../pages/AddItems'
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Items />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/items/new',
+    element: (
+      <ProtectedRoute>
+        <AddItems />
       </ProtectedRoute>
     ),
   },

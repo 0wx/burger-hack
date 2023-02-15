@@ -43,33 +43,143 @@
       "categoryId": 2,
       "createdAt": "2022-12-04T12:00:00Z",
       "updatedAt": "2022-12-04T12:00:00Z"
+    },
+    {
+      "name": "Chicken Sandwich",
+      "description": "Lightly breaded chicken topped with crisp lettuce and creamy mayonnaise on a sesame seed bun.",
+      "price": 25000,
+      "authorId": 1,
+      "categoryId": 2,
+      "imgUrl": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/fc7c2a73e7a9bf14f3e3401bedcc090c4f421c67-1333x1333.png?w=750&q=40&fit=max&auto=format",
+      "id": 5
     }
   ],
   "ingredients": [
-    { "id": 1, "itemId": 1, "name": "Beef patty" },
-    { "id": 2, "itemId": 1, "name": "Toasted bun" },
-    { "id": 3, "itemId": 1, "name": "Lettuce" },
-    { "id": 4, "itemId": 1, "name": "Tomato" },
-    { "id": 5, "itemId": 1, "name": "Cheese" },
-    { "id": 6, "itemId": 2, "name": "Beef patty" },
-    { "id": 7, "itemId": 2, "name": "Toasted bun" },
-    { "id": 8, "itemId": 2, "name": "Melted cheese" },
-    { "id": 9, "itemId": 2, "name": "Lettuce" },
-    { "id": 10, "itemId": 2, "name": "Pickles" },
-    { "id": 11, "itemId": 3, "name": "Chicken patty" },
-    { "id": 12, "itemId": 3, "name": "Toasted bun" },
-    { "id": 13, "itemId": 3, "name": "Lettuce" },
-    { "id": 14, "itemId": 3, "name": "Tomato" },
-    { "id": 15, "itemId": 3, "name": "Cheese" },
-    { "id": 16, "itemId": 4, "name": "Chicken patty" },
-    { "id": 17, "itemId": 4, "name": "Toasted bun" },
-    { "id": 18, "itemId": 4, "name": "Melted cheese" },
-    { "id": 19, "itemId": 4, "name": "Lettuce" },
-    { "id": 20, "itemId": 4, "name": "Pickles" }
+    {
+      "id": 1,
+      "itemId": 1,
+      "name": "Beef patty"
+    },
+    {
+      "id": 2,
+      "itemId": 1,
+      "name": "Toasted bun"
+    },
+    {
+      "id": 3,
+      "itemId": 1,
+      "name": "Lettuce"
+    },
+    {
+      "id": 4,
+      "itemId": 1,
+      "name": "Tomato"
+    },
+    {
+      "id": 5,
+      "itemId": 1,
+      "name": "Cheese"
+    },
+    {
+      "id": 6,
+      "itemId": 2,
+      "name": "Beef patty"
+    },
+    {
+      "id": 7,
+      "itemId": 2,
+      "name": "Toasted bun"
+    },
+    {
+      "id": 8,
+      "itemId": 2,
+      "name": "Melted cheese"
+    },
+    {
+      "id": 9,
+      "itemId": 2,
+      "name": "Lettuce"
+    },
+    {
+      "id": 10,
+      "itemId": 2,
+      "name": "Pickles"
+    },
+    {
+      "id": 11,
+      "itemId": 3,
+      "name": "Chicken patty"
+    },
+    {
+      "id": 12,
+      "itemId": 3,
+      "name": "Toasted bun"
+    },
+    {
+      "id": 13,
+      "itemId": 3,
+      "name": "Lettuce"
+    },
+    {
+      "id": 14,
+      "itemId": 3,
+      "name": "Tomato"
+    },
+    {
+      "id": 15,
+      "itemId": 3,
+      "name": "Cheese"
+    },
+    {
+      "id": 16,
+      "itemId": 4,
+      "name": "Chicken patty"
+    },
+    {
+      "id": 17,
+      "itemId": 4,
+      "name": "Toasted bun"
+    },
+    {
+      "id": 18,
+      "itemId": 4,
+      "name": "Melted cheese"
+    },
+    {
+      "id": 19,
+      "itemId": 4,
+      "name": "Lettuce"
+    },
+    {
+      "id": 20,
+      "itemId": 4,
+      "name": "Pickles"
+    },
+    {
+      "name": "Chicken",
+      "itemId": 5,
+      "id": 21
+    },
+    {
+      "name": "Salad",
+      "itemId": 5,
+      "id": 22
+    },
+    {
+      "name": "Lettuce",
+      "itemId": 5,
+      "id": 23
+    }
   ],
   "categories": [
-    { "id": 1, "name": "Beef Burger" },
-    { "id": 2, "name": "Chicken Burger" }
+    {
+      "id": 1,
+      "name": "Beef Burger"
+    },
+    {
+      "id": 2,
+      "name": "Chicken Burger"
+    }
   ],
   "authors": [
     {
