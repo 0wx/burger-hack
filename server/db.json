@@ -179,6 +179,18 @@
     {
       "id": 2,
       "name": "Chicken Burger"
+    },
+    {
+      "name": "Fries",
+      "id": 3
+    },
+    {
+      "name": "Drink",
+      "id": 4
+    },
+    {
+      "name": "Beverage",
+      "id": 5
     }
   ],
   "authors": [
