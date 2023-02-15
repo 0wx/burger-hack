@@ -22,6 +22,7 @@
  * @property {Food} food
  */
 
+import { Link } from 'react-router-dom'
 import CartIcon from '../atoms/CartIcon'
 import InfoIcon from '../atoms/InfoIcon'
 
@@ -53,9 +54,11 @@ export default function FoodCard(props) {
           <div className='flex gap-2 w-36 bg-accent justify-center py-2 px-2 rounded-lg text-sm items-center font-bold cursor-pointer hover:bg-accent-focus'>
             <CartIcon /> Add to Cart
           </div>
-          <div className='flex gap-2 w-36 border-secondary border justify-center py-2 px-2 rounded-lg text-sm items-center font-bold cursor-pointer hover:bg-secondary hover:text-base-100'>
-            <InfoIcon /> Detail
-          </div>
+          <Link to={'/menu/' + props.food.id}>
+            <div className='flex gap-2 w-36 border-secondary border justify-center py-2 px-2 rounded-lg text-sm items-center font-bold cursor-pointer hover:bg-secondary hover:text-base-100'>
+              <InfoIcon /> Detail
+            </div>
+          </Link>
         </div>
       </div>
     </div>
