@@ -3,6 +3,7 @@ import ProtectedRoute from '../components/layouts/ProtectedRoute'
 import Home from '../pages/Home'
 import Items from '../pages/Items'
 import Login from '../pages/Login'
+import Categories from '../pages/Categories'
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Items />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/categories',
+    element: (
+      <ProtectedRoute>
+        <Categories />
       </ProtectedRoute>
     ),
   },
