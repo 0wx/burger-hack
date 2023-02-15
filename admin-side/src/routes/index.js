@@ -7,6 +7,7 @@ import Categories from '../pages/Categories'
 import Admins from '../pages/Admins'
 import AddItems from '../pages/AddItems'
 import AddCatogeries from '../pages/AddCategory'
+import AddAdmin from '../pages/AddAdmin'
 
 export const router = createBrowserRouter([
   {
@@ -34,14 +35,6 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: '/categories/new',
-    element: (
-      <ProtectedRoute>
-        <AddCatogeries />
-      </ProtectedRoute>
-    ),
-  },
-  {
     path: '/categories',
     element: (
       <ProtectedRoute>
@@ -50,10 +43,26 @@ export const router = createBrowserRouter([
     ),
   },
   {
+    path: '/categories/new',
+    element: (
+      <ProtectedRoute>
+        <AddCatogeries />
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: '/admins',
     element: (
       <ProtectedRoute>
         <Admins />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admins/new',
+    element: (
+      <ProtectedRoute>
+        <AddAdmin />
       </ProtectedRoute>
     ),
   },
