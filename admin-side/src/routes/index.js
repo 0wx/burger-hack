@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import Items from '../pages/Items'
 import Login from '../pages/Login'
 import Categories from '../pages/Categories'
+import Admins from '../pages/Admins'
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Categories />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/admins',
+    element: (
+      <ProtectedRoute>
+        <Admins />
       </ProtectedRoute>
     ),
   },
