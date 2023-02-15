@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { api } from '../../helpers/fetch'
 
 export default function AddItemsForm() {
+  const navigate = useNavigate()
+
   const [data, setData] = useState({
     name: '',
     description: '',
@@ -41,9 +43,14 @@ export default function AddItemsForm() {
         ingredients
           .split(',')
           .map((ingredient) =>
-            api.post('/ingredients', { name: ingredient.trim(), itemId: item.id })
+            api.post('/ingredients', {
+              name: ingredient.trim(),
+              itemId: item.id,
+            })
           )
       )
+
+      navigate('/items')
       console.log(item)
     } catch (error) {
       console.error(error)
