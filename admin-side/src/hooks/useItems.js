@@ -6,7 +6,7 @@ export const useItems = () => {
   useEffect(() => {
     const fetchitems = async () => {
       try {
-        const items = await (await fetch('http://localhost:3000/items')).json()
+        const items = await (await fetch('http://localhost:3000/items?_expand=category&_embed=ingredients')).json()
 
         setItems(items)
       } catch (error) {

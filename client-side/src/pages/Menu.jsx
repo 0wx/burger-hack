@@ -8,7 +8,7 @@ export default function Menu() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/items')
+        const response = await fetch('http://localhost:3000/items?_expand=category')
         const data = await response.json()
 
         setFoods(data)

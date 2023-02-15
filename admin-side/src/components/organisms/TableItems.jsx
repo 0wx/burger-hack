@@ -7,15 +7,15 @@
  * @property {string} imgUrl
  * @property {number} authorId
  * @property {number} categoryId
- * @property {object} Category
- * @property {number} Category.id
- * @property {string} Category.name
+ * @property {object} category
+ * @property {number} category.id
+ * @property {string} category.name
  * @property {string} createdAt
  * @property {string} updatedAt
- * @property {object[]} Ingredients
- * @property {number} Ingredients.id
- * @property {number} Ingredients.itemId
- * @property {string} Ingredients.name
+ * @property {object[]} ingredients
+ * @property {number} ingredients.id
+ * @property {number} ingredients.itemId
+ * @property {string} ingredients.name
  */
 /**
  * @typedef {object} Props

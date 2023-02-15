@@ -3,7 +3,7 @@ import TableItems from '../components/organisms/TableItems'
 import { useItems } from '../hooks/useItems'
 
 export default function Items() {
-  const { items, loading } = useItems()
+  const { items } = useItems()
   return (
     <MainLayout>
       <div className='w-full'>
