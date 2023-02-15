@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { api } from '../helpers/fetch'
 
 export const useStatistics = () => {
   const [loading, setLoading] = useState(true)
@@ -6,10 +7,8 @@ export const useStatistics = () => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const items = await (await fetch('http://localhost:3000/items')).json()
-        const categories = await (
-          await fetch('http://localhost:3000/categories')
-        ).json()
+        const { data: items } = await api.get('/items')
+        const { data: categories } = await api.get('/categories')
 
         setStatistics({ items, categories })
       } catch (error) {

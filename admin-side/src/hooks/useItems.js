@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { api } from '../helpers/fetch'
 
 export const useItems = () => {
   const [loading, setLoading] = useState(true)
@@ -6,7 +7,9 @@ export const useItems = () => {
   useEffect(() => {
     const fetchitems = async () => {
       try {
-        const items = await (await fetch('http://localhost:3000/items?_expand=category&_embed=ingredients')).json()
+        const { data: items } = await api.get(
+          '/items?_expand=category&_embed=ingredients'
+        )
 
         setItems(items)
       } catch (error) {
