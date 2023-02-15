@@ -6,7 +6,7 @@
       "description": "A delicious, juicy beef patty served on a toasted bun with lettuce, tomato, and cheese.",
       "price": 30000,
       "imgUrl": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/a186587fa5489876daa7a480d72aa517ddfed595-1333x1333.png?w=750&q=40&fit=max&auto=format",
-      "authorId": 123,
+      "authorId": 1,
       "categoryId": 1,
       "createdAt": "2022-12-01T12:00:00Z",
       "updatedAt": "2022-12-01T12:00:00Z"
@@ -17,10 +17,32 @@
       "description": "A juicy beef patty served on a toasted bun with melted cheese, lettuce, and pickles.",
       "price": 40000,
       "imgUrl": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/55361a27d204b821ff404ed6a70d654c1224ecb0-1333x1333.png?w=750&q=40&fit=max&auto=format",
-      "authorId": 456,
+      "authorId": 1,
       "categoryId": 1,
       "createdAt": "2022-12-02T12:00:00Z",
       "updatedAt": "2022-12-02T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Chicken Burger",
+      "description": "A juicy chicken patty served on a toasted bun with lettuce, tomato, and cheese.",
+      "price": 35000,
+      "imgUrl": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/238e287aa4d92d6e0cc4783e397b6e7386cd2e47-1333x1333.png?w=750&q=40&fit=max&auto=format",
+      "authorId": 1,
+      "categoryId": 2,
+      "createdAt": "2022-12-03T12:00:00Z",
+      "updatedAt": "2022-12-03T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Chicken Cheese Burger",
+      "description": "A juicy chicken patty served on a toasted bun with melted cheese, lettuce, and pickles.",
+      "price": 45000,
+      "imgUrl": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/ec3374f3e3ae162fabaf73a299b4d3042269ed6a-1333x1333.png?w=750&q=40&fit=max&auto=format",
+      "authorId": 1,
+      "categoryId": 2,
+      "createdAt": "2022-12-04T12:00:00Z",
+      "updatedAt": "2022-12-04T12:00:00Z"
     }
   ],
   "ingredients": [
@@ -33,7 +55,27 @@
     { "id": 7, "itemId": 2, "name": "Toasted bun" },
     { "id": 8, "itemId": 2, "name": "Melted cheese" },
     { "id": 9, "itemId": 2, "name": "Lettuce" },
-    { "id": 10, "itemId": 2, "name": "Pickles" }
+    { "id": 10, "itemId": 2, "name": "Pickles" },
+    { "id": 11, "itemId": 3, "name": "Chicken patty" },
+    { "id": 12, "itemId": 3, "name": "Toasted bun" },
+    { "id": 13, "itemId": 3, "name": "Lettuce" },
+    { "id": 14, "itemId": 3, "name": "Tomato" },
+    { "id": 15, "itemId": 3, "name": "Cheese" },
+    { "id": 16, "itemId": 4, "name": "Chicken patty" },
+    { "id": 17, "itemId": 4, "name": "Toasted bun" },
+    { "id": 18, "itemId": 4, "name": "Melted cheese" },
+    { "id": 19, "itemId": 4, "name": "Lettuce" },
+    { "id": 20, "itemId": 4, "name": "Pickles" }
   ],
-  "categories": [{ "id": 1, "name": "Burgers" }]
+  "categories": [
+    { "id": 1, "name": "Beef Burger" },
+    { "id": 2, "name": "Chicken Burger" }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Husin",
+      "email": "toasty@gmail.com"
+    }
+  ]
 }
