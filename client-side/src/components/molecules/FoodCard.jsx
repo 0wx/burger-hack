@@ -31,7 +31,7 @@ import InfoIcon from '../atoms/InfoIcon'
  */
 export default function FoodCard(props) {
   return (
-    <div className='h-60 aspect-video border-2 border-secondary rounded-lg'>
+    <div className='h-60 aspect-video border-2 border-secondary rounded-lg overflow-hidden'>
       <div className='bg-secondary h-2/5'></div>
       <div className='flex flex-col items-center -translate-y-32 gap-1'>
         <div className='flex items-center gap-4'>

@@ -116,7 +116,7 @@ export default function Home() {
             Here at <span className='font-bold text-primary'>Burger Hack</span>
           </div>
           <Link to='/menu'>
-            <div className='flex font-bold items-center gap-2 bg-primary w-44 justify-center rounded-3xl py-1 text-base-100 mt-5'>
+            <div className='flex font-bold items-center gap-2 hover:gap-4 hover:bg-primary-focus transition-all bg-primary w-44 justify-start pl-7 rounded-3xl py-1 text-base-100 mt-5'>
               Explore Menu
               <svg
                 xmlns='http://www.w3.org/2000/svg'
