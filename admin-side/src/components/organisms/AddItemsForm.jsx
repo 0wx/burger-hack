@@ -10,7 +10,7 @@ export default function AddItemsForm() {
     description: '',
     price: 0,
     authorId: 1,
-    categoryId: null,
+    categoryId: '',
     imgUrl: '',
   })
   const [ingredients, setIngredients] = useState('')
