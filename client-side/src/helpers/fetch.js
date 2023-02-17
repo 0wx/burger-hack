@@ -14,6 +14,8 @@ export class Api {
       },
     }
     const response = await fetch(`${this.baseURL}${path}`, config)
+    if (!response.ok) throw await response.json()
+    
     const data = await response.json()
     return { response, data }
   }
@@ -28,6 +30,8 @@ export class Api {
       body: JSON.stringify(data),
     }
     const response = await fetch(`${this.baseURL}${path}`, config)
+    if (!response.ok) throw await response.json()
+
     const _data = await response.json()
     return { response, data: _data }
   }
@@ -42,6 +46,8 @@ export class Api {
       body: JSON.stringify(data),
     }
     const response = await fetch(`${this.baseURL}${path}`, config)
+    if (!response.ok) throw await response.json()
+
     const _data = await response.json()
     return { response, data: _data }
   }
@@ -54,6 +60,8 @@ export class Api {
       },
     }
     const response = await fetch(`${this.baseURL}${path}`, config)
+    if (!response.ok) throw await response.json()
+
     const data = await response.json()
     return { response, data }
   }
@@ -68,6 +76,8 @@ export class Api {
       body: JSON.stringify(data),
     }
     const response = await fetch(`${this.baseURL}${path}`, config)
+    if (!response.ok) throw await response.json()
+
     const _data = await response.json()
     return { response, data: _data }
   }
