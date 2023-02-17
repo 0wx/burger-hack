@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import MainLayout from '../components/layouts/MainLayout'
 import FoodCard from '../components/molecules/FoodCard'
+import { api } from '../helpers/fetch'
 
 export default function Menu() {
   const [foods, setFoods] = useState([])
@@ -8,8 +9,7 @@ export default function Menu() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/items?_expand=category')
-        const data = await response.json()
+        const { data } = await api.get('/items?_expand=category')
 
         setFoods(data)
       } catch (error) {
