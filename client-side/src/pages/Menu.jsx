@@ -17,10 +17,10 @@ export default function Menu() {
 
   return (
     <MainLayout>
-      <div className='flex gap-10 flex-col items-center'>
-        <div className='text-5xl font-bold'>Our Menus</div>
-        <div className='divider'></div>
-        <div className='flex gap-10 flex-wrap justify-center'>
+      <div className="flex gap-10 flex-col items-center">
+        <div className="text-5xl font-bold">Our Menus</div>
+        <div className="divider"></div>
+        <div className="flex gap-10 flex-wrap justify-center">
           {foods.map((food) => {
             return <FoodCard food={food} key={food.id} />
           })}

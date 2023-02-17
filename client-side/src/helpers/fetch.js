@@ -15,7 +15,7 @@ export class Api {
     }
     const response = await fetch(`${this.baseURL}${path}`, config)
     if (!response.ok) throw await response.json()
-    
+
     const data = await response.json()
     return { response, data }
   }
