@@ -6,6 +6,8 @@
  *
  */
 
+import { USER_LOGIN, USER_LOGOUT } from '../actions/actionTypes'
+
 /**
  * @type {{ user: User | null, loading: boolean }}
  */
@@ -16,12 +18,12 @@ const initialState = {
 
 function userReducer(state = initialState, action) {
   switch (action.type) {
-    case 'user/login':
+    case USER_LOGIN:
       return {
         ...state,
         user: action.payload,
       }
-    case 'user/logout':
+    case USER_LOGOUT:
       return {
         ...state,
         user: null,
