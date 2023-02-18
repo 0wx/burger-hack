@@ -13,12 +13,22 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'categoryId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
+        as: 'category'
       })
       Item.hasMany(models.Ingredient, {
         foreignKey: 'itemId',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
+        as: 'ingredients'
       })
+      Item.belongsTo(models.User, {
+        foreignKey: 'authorId',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+        as: 'author'
+      })
+
+
     }
   }
   Item.init(
