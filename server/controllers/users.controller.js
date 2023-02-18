@@ -14,7 +14,11 @@ class UserController {
 
       if (!isValid) throw { name: 'InvalidEmailPassword' }
 
-      const access_token = signToken({ id: user.id, email: user.email })
+      const access_token = signToken({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      })
 
       res.status(200).json({ access_token })
     } catch (error) {
@@ -26,7 +30,11 @@ class UserController {
     try {
       const { name, email, password } = req.body
       const user = await User.create({ name, email, password, role: 'admin' })
-      const access_token = signToken({ id: user.id, email: user.email })
+      const access_token = signToken({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+      })
       res.status(201).json({ access_token })
     } catch (error) {
       next(error)
