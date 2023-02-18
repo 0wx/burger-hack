@@ -7,8 +7,25 @@ class ItemsController {
       const options = {
         where: {},
         distinct: true,
+        attributes: [
+          'id',
+          'name',
+          'description',
+          'price',
+          'imgUrl',
+          'authorId',
+          'categoryId',
+          'createdAt',
+          'updatedAt',
+        ],
         include: [
-          { model: Category, as: 'category' },
+          {
+            model: Category,
+            as: 'category',
+            attributes: {
+              exclude: ['createdAt', 'updatedAt'],
+            },
+          },
           {
             model: User,
             as: 'author',
@@ -17,6 +34,9 @@ class ItemsController {
           {
             model: Ingredient,
             as: 'ingredients',
+            attributes: {
+              exclude: ['createdAt', 'updatedAt'],
+            },
           },
         ],
       }

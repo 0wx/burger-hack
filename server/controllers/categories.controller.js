@@ -35,7 +35,6 @@ class CategoriesController {
       const { rows: data, count: total } = await Category.findAndCountAll(
         options
       )
-
       console.log(total, data.length, options)
 
       const headers = {
