@@ -12,7 +12,7 @@ export default function AddCategoryForm() {
   const handleChange = (e) =>
     setData({
       ...data,
-      [e.target.name]: Number(e.target.value) || e.target.value,
+      [e.target.name]: e.target.value,
     })
 
   const handleSubmit = async (e) => {
