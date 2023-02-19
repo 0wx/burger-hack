@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 import { api } from '../../helpers/fetch'
 
 export default function AddCategoryForm() {
@@ -23,6 +24,7 @@ export default function AddCategoryForm() {
       console.log(item)
     } catch (error) {
       console.error(error)
+      toast.error(error.message)
     }
   }
 

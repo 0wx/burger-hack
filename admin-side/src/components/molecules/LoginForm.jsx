@@ -1,16 +1,20 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { postLoginUser } from '../../stores/actions/user'
+import { postLoginUser } from '../../stores/actions/actionCreator'
+import { useNavigate } from 'react-router-dom'
 
 export default function LoginForm() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [data, setData] = useState({ email: '', password: '' })
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
 
   const handleLogin = () => {
-    dispatch(postLoginUser(data))
+    dispatch(postLoginUser(data)).then(() => {
+      if(localStorage.getItem('access_token')) navigate('/')
+    })
   }
   return (
     <div className='flex flex-col max-w-xs gap-4'>
