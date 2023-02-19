@@ -5,8 +5,7 @@ module.exports = (err, req, res, next) => {
 
   if (
     err.name === 'SequelizeValidationError' ||
-    err.name === 'SequelizeUniqueConstraintError' ||
-    err.name === 'SequelizeForeignKeyConstraintError'
+    err.name === 'SequelizeUniqueConstraintError'
   ) {
     status = 400
     message = err.errors.map((error) => error.message)[0]

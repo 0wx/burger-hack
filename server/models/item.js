@@ -11,20 +11,20 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Item.belongsTo(models.Category, {
         foreignKey: 'categoryId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
         as: 'category'
       })
       Item.hasMany(models.Ingredient, {
         foreignKey: 'itemId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
         as: 'ingredients'
       })
       Item.belongsTo(models.User, {
         foreignKey: 'authorId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
         as: 'author'
       })
 
@@ -86,8 +86,8 @@ module.exports = (sequelize, DataTypes) => {
           references: {
             model: 'Users',
             key: 'id',
-            onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
+            onDelete: 'cascade',
+            onUpdate: 'cascade',
           },
         },
       },
@@ -97,8 +97,8 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'Categories',
           key: 'id',
-          onDelete: 'CASCADE',
-          onUpdate: 'CASCADE',
+          onDelete: 'cascade',
+          onUpdate: 'cascade',
         },
       },
     },

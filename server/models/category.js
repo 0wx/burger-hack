@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Category.hasMany(models.Item, {
         foreignKey: 'categoryId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
         as: 'items'
       })
     }

@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Ingedients.belongsTo(models.Item, {
         foreignKey: 'itemId',
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE',
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       })
     }
   }
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
         references: {
           model: 'Items',
           key: 'id',
-          onDelete: 'CASCADE',
-          onUpdate: 'CASCADE',
+          onDelete: 'cascade',
+          onUpdate: 'cascade',
         },
       },
       name: {

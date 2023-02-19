@@ -31,9 +31,9 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id',
-          onDelete: 'CASCADE',
-          onUpdate: 'CASCADE',
         },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       categoryId: {
         allowNull: false,
@@ -41,9 +41,9 @@ module.exports = {
         references: {
           model: 'Categories',
           key: 'id',
-          onDelete: 'CASCADE',
-          onUpdate: 'CASCADE',
         },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       createdAt: {
         allowNull: false,
