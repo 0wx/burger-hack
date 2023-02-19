@@ -1,6 +1,5 @@
-const { Item, Category, User, Ingredient } = require('../models')
-const sequelize = require('sequelize')
-
+const { Item, Category, User, Ingredient, sequelize } = require('../models')
+const { Op } = require('sequelize')
 class ItemsController {
   static async list(req, res, next) {
     try {
@@ -153,27 +152,24 @@ class ItemsController {
 
       const data = await Item.update(req.body, options)
 
-      const ingredients = req.body.ingredients.map((ingredient) => {
+      const ingredients = [...new Set(req.body.ingredients)].map((ingredient) => {
         return {
           name: ingredient,
-          itemId: data.id,
+          itemId: req.params.id,
         }
-      })
-
-      await Ingredient.bulkCreate(ingredients, {
-        updateOnDuplicate: ['name'],
-        transaction: t,
       })
 
       await Ingredient.destroy({
         where: {
-          itemId: data.id,
-          name: {
-            [Op.notIn]: req.body.ingredients,
-          },
+          itemId: req.params.id
         },
         transaction: t,
       })
+      await Ingredient.bulkCreate(ingredients, {
+        ignoreDuplicates: true,
+        transaction: t,
+      })
+
 
       await t.commit()
       res.json(data)
