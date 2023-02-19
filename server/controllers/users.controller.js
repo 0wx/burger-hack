@@ -1,5 +1,5 @@
-const { User } = require('../models')
-const { signToken, verifyToken } = require('../helpers/jwt')
+const { User, Item } = require('../models')
+const { signToken } = require('../helpers/jwt')
 const { compareSync } = require('bcryptjs')
 
 class UserController {
@@ -36,6 +36,42 @@ class UserController {
         email: user.email,
       })
       res.status(201).json({ access_token })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  static async fetchUsers(req, res, next) {
+    try {
+      const users = await User.findAll({
+        include: [{ model: Item, as: 'items' }],
+        attributes: { exclude: ['password'] },
+      })
+      res.status(200).json(users)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  static async editUser(req, res, next) {
+    try {
+      const { id } = req.params
+      const { name, email, password } = req.body
+      const user = await User.update(
+        { name, email, password },
+        { where: { id }, returning: true }
+      )
+      res.status(200).json(user[1][0])
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  static async deleteUser(req, res, next) {
+    try {
+      const { id } = req.params
+      const user = await User.destroy({ where: { id } })
+      res.status(200).json({ message: 'User deleted' })
     } catch (error) {
       next(error)
     }

@@ -6,12 +6,13 @@ const {
   adminAuthorization,
 } = require('../middlewares/auth.middlewares')
 
-router.post(
-  '/register',
-  authentication,
-  adminAuthorization,
-  UsersController.register
-)
 router.post('/login', UsersController.login)
+
+router.use(authentication)
+router.use(adminAuthorization)
+router.post('/register', UsersController.register)
+router.get('/admins', UsersController.fetchUsers)
+router.put('/admins/:id', UsersController.editUser)
+router.delete('/admins/:id', UsersController.deleteUser)
 
 module.exports = router
