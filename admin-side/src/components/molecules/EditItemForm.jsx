@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { editItem, fetchCategories } from '../../stores/actions/actionCreator'
 
 export default function EditItemsForm({ item, exit }) {
@@ -117,11 +116,9 @@ export default function EditItemsForm({ item, exit }) {
             }}
           />
         </div>
-        <Link to='/items'>
-          <button type='submit' className='btn btn-ghost mr-4'>
-            Cancel
-          </button>
-        </Link>
+        <button onClick={exit} type='submit' className='btn btn-ghost mr-4'>
+          Cancel
+        </button>
         <button type='submit' className='btn btn-primary'>
           Save
         </button>
