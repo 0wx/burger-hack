@@ -1,33 +1,25 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { api } from '../../helpers/fetch'
+import { addItem, fetchCategories } from '../../stores/actions/actionCreator'
 
 export default function AddItemsForm() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { categories } = useSelector((state) => state.categories)
 
   const [data, setData] = useState({
     name: '',
     description: '',
     price: 0,
-    authorId: 1,
     categoryId: '',
     imgUrl: '',
   })
   const [ingredients, setIngredients] = useState('')
-  const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data: categories } = await api.get('/categories')
-        setCategories(categories)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    fetchCategories()
-  }, [])
+    dispatch(fetchCategories())
+  }, [dispatch])
 
   const handleChange = (e) =>
     setData({
@@ -37,24 +29,11 @@ export default function AddItemsForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      const { data: item } = await api.post('/items', data)
-      await Promise.all(
-        ingredients
-          .split(',')
-          .map((ingredient) =>
-            api.post('/ingredients', {
-              name: ingredient.trim(),
-              itemId: item.id,
-            })
-          )
-      )
-
-      navigate('/items')
-      console.log(item)
-    } catch (error) {
-      console.error(error)
+    const payload = {
+      ...data,
+      ingredients: ingredients.split(',').map((i) => i.trim()),
     }
+    dispatch(addItem(payload)).then(() => navigate('/items'))
   }
 
   return (

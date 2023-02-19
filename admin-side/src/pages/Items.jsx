@@ -1,10 +1,17 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import MainLayout from '../components/layouts/MainLayout'
 import TableItems from '../components/organisms/TableItems'
-import { useItems } from '../hooks/useItems'
+// import { useItems } from '../hooks/useItems'
+import { fetchItems } from '../stores/actions/actionCreator'
 
 export default function Items() {
-  const { items } = useItems()
+  const dispatch = useDispatch()
+  const { items } = useSelector((state) => state.items)
+  useEffect(() => {
+    dispatch(fetchItems())
+  }, [dispatch])
   return (
     <MainLayout title='Item List' selected='items'>
       <div className='w-full'>

@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { api } from '../../helpers/fetch'
+import { addCatogery } from '../../stores/actions/actionCreator'
 
 export default function AddCategoryForm() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [data, setData] = useState({
     name: '',
@@ -17,13 +19,7 @@ export default function AddCategoryForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      const { data: item } = await api.post('/categories', data)
-      navigate('/categories')
-      console.log(item)
-    } catch (error) {
-      console.error(error)
-    }
+    dispatch(addCatogery(data)).then(() => navigate('/categories'))
   }
 
   return (

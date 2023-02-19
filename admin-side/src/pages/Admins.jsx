@@ -1,11 +1,17 @@
 import MainLayout from '../components/layouts/MainLayout'
 import AdminRow from '../components/molecules/AdminRow'
 import Table from '../components/organisms/Table'
-import { useAdmins } from '../hooks/useAdmins'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchAdmins } from '../stores/actions/actionCreator'
 
 export default function Admins() {
-  const { admins } = useAdmins()
+  const { admins } = useSelector((state) => state.admins)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchAdmins())
+  }, [dispatch])
   return (
     <MainLayout title='Admin List' selected='admins'>
       <div className='w-full'>

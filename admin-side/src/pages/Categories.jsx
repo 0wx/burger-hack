@@ -1,10 +1,17 @@
 import MainLayout from '../components/layouts/MainLayout'
 import TableCategory from '../components/organisms/TableCategory'
-import { useCategories } from '../hooks/useCategories'
+// import { useCategories } from '../hooks/useCategories'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchCategories } from '../stores/actions/actionCreator'
 
 export default function Items() {
-  const { categories } = useCategories()
+  const { categories } = useSelector((state) => state.categories)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [dispatch])
   return (
     <MainLayout title='Category List' selected='categories'>
       <div className='w-full'>
