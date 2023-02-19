@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { toast } from 'react-toastify'
-import { api } from '../../helpers/fetch'
 import { fetchItems, removeItem } from '../../stores/actions/actionCreator'
 import EditItemsForm from './EditItemForm'
 
