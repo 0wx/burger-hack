@@ -121,7 +121,10 @@ class ItemsController {
   static async create(req, res, next) {
     const t = await sequelize.transaction()
     try {
-      const data = await Item.create(req.body, { transaction: t })
+      const data = await Item.create(
+        { ...req.body, authorId: req.user.id },
+        { transaction: t }
+      )
 
       const ingredients = req.body.ingredients.map((ingredient) => {
         return {
@@ -152,16 +155,18 @@ class ItemsController {
 
       const data = await Item.update(req.body, options)
 
-      const ingredients = [...new Set(req.body.ingredients)].map((ingredient) => {
-        return {
-          name: ingredient,
-          itemId: req.params.id,
+      const ingredients = [...new Set(req.body.ingredients)].map(
+        (ingredient) => {
+          return {
+            name: ingredient,
+            itemId: req.params.id,
+          }
         }
-      })
+      )
 
       await Ingredient.destroy({
         where: {
-          itemId: req.params.id
+          itemId: req.params.id,
         },
         transaction: t,
       })
@@ -169,7 +174,6 @@ class ItemsController {
         ignoreDuplicates: true,
         transaction: t,
       })
-
 
       await t.commit()
       res.json(data)
