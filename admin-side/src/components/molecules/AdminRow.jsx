@@ -24,7 +24,7 @@ export default function AdminRow({ admin }) {
             <EditAdminForm admin={admin} exit={() => setShowEdit(false)} />
           </div>
         )}
-        <button className='btn btn-sm btn-ghost'>Edit</button>
+        <button onClick={() => setShowEdit(true)} className='btn btn-sm btn-ghost'>Edit</button>
         <button onClick={handleDelete} className='btn btn-sm btn-ghost'>
           Delete
         </button>
