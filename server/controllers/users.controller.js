@@ -18,6 +18,7 @@ class UserController {
         id: user.id,
         name: user.name,
         email: user.email,
+        role: user.role,
       })
 
       res.status(200).json({ access_token })
@@ -34,6 +35,7 @@ class UserController {
         id: user.id,
         name: user.name,
         email: user.email,
+        role: user.role,
       })
       res.status(201).json({ access_token })
     } catch (error) {
