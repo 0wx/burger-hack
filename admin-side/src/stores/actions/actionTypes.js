@@ -9,3 +9,5 @@ export const USER_PARSE = 'user/parse'
 export const GET_CATEGORIES = 'categories/get'
 
 export const GET_ITEMS = 'items/get'
+
+export const GET_ADMINS = 'admins/get'

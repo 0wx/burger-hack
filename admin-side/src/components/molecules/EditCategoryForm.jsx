@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { toast } from 'react-toastify'
-import { api } from '../../helpers/fetch'
-import { fetchCategories } from '../../stores/actions/actionCreator'
+import { editCategory } from '../../stores/actions/actionCreator'
 
 export default function EditCategoryForm({ category, exit }) {
   const [name, setName] = useState(category.name)
@@ -10,14 +8,9 @@ export default function EditCategoryForm({ category, exit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      await api.put('/categories/' + category.id, { name })
+    dispatch(editCategory({ id: category.id, name })).then(() => {
       exit()
-      dispatch(fetchCategories())
-    } catch (error) {
-      console.error(error)
-      toast.error(error.message)
-    }
+    })
   }
 
   return (

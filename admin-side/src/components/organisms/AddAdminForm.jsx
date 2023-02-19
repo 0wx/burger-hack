@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
-import { api } from '../../helpers/fetch'
+import { addAdmin } from '../../stores/actions/actionCreator'
 
 export default function AddAdminForm() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [data, setData] = useState({
     name: '',
-    email: ''
+    email: '',
+    password: '',
   })
 
   const handleChange = (e) =>
@@ -16,15 +19,10 @@ export default function AddAdminForm() {
       [e.target.name]: Number(e.target.value) || e.target.value,
     })
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    try {
-      const { data: item } = await api.post('/authors', data)
-      navigate('/admins')
-      console.log(item)
-    } catch (error) {
-      console.error(error)
-    }
+
+    dispatch(addAdmin(data)).then(() => navigate('/admins'))
   }
 
   return (
@@ -48,6 +46,17 @@ export default function AddAdminForm() {
           id='email'
           name='email'
           value={data.email}
+          onChange={handleChange}
+        />
+      </div>
+      <div className='flex flex-col my-4'>
+        <label htmlFor='password'>Password</label>
+        <input
+          type='password'
+          className='input input-bordered'
+          id='password'
+          name='password'
+          value={data.password}
           onChange={handleChange}
         />
       </div>

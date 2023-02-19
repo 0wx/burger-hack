@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
 import { api } from '../../helpers/fetch'
-import { fetchItems } from '../../stores/actions/actionCreator'
+import { fetchItems, removeItem } from '../../stores/actions/actionCreator'
 import EditItemsForm from './EditItemForm'
 
 /**
@@ -38,12 +38,7 @@ export default function ItemRow({ item, index }) {
   const [showEdit, setShowEdit] = useState(false)
 
   const handleRemove = async () => {
-    try {
-      await api.delete(`/items/${item.id}`)
-      dispatch(fetchItems())
-    } catch (error) {
-      toast.error(error.message)
-    }
+    dispatch(removeItem(item.id)).then(() => dispatch(fetchItems()))
   }
   return (
     <>

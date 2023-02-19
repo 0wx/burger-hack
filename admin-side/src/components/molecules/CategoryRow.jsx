@@ -1,6 +1,5 @@
-import { api } from '../../helpers/fetch'
 import { useDispatch } from 'react-redux'
-import { fetchCategories } from '../../stores/actions/actionCreator'
+import { removeCategory } from '../../stores/actions/actionCreator'
 import { useState } from 'react'
 import EditCategoryForm from './EditCategoryForm'
 
@@ -8,13 +7,7 @@ export default function CategoryRow({ category }) {
   const dispatch = useDispatch()
   const [showEdit, setShowEdit] = useState(false)
   const handleRemove = async () => {
-    try {
-      const { data } = await api.delete(`/categories/${category.id}`)
-      console.log(data)
-      dispatch(fetchCategories())
-    } catch (error) {
-      console.error(error)
-    }
+    dispatch(removeCategory(category.id))
   }
   return (
     <tr key={category.id}>

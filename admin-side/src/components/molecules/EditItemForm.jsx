@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import { api } from '../../helpers/fetch'
-import { fetchItems } from '../../stores/actions/actionCreator'
+import { editItem, fetchCategories } from '../../stores/actions/actionCreator'
 
 export default function EditItemsForm({ item, exit }) {
   const [data, setData] = useState(item)
   const dispatch = useDispatch()
+  const { categories } = useSelector((state) => state.categories)
   const [ingredients, setIngredients] = useState(
     item.ingredients
       .map((v) => {
@@ -16,20 +15,9 @@ export default function EditItemsForm({ item, exit }) {
       })
       .join(', ')
   )
-  const [categories, setCategories] = useState([])
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const { data: categories } = await api.get('/categories')
-        setCategories(categories)
-      } catch (error) {
-        console.error(error)
-        toast(error.message)
-      }
-    }
-
-    fetchCategories()
-  }, [])
+    dispatch(fetchCategories())
+  }, [dispatch])
 
   const handleChange = (e) =>
     setData({
@@ -39,19 +27,14 @@ export default function EditItemsForm({ item, exit }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    try {
-      const { data: _item } = await api.put('/items/' + item.id, {
-        ...data,
-        ingredients: ingredients.split(',').map((v) => v.trim()),
-      })
-
-      dispatch(fetchItems()).then(() => {
-        exit()
-      })
-    } catch (error) {
-      console.error(error)
-      toast.error(error.message)
+    const payload = {
+      ...data,
+      ingredients: ingredients.split(',').map((v) => v.trim()),
     }
+
+    dispatch(editItem(payload)).then(() => {
+      exit()
+    })
   }
 
   return (
