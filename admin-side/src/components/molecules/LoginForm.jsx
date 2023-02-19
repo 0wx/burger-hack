@@ -11,13 +11,14 @@ export default function LoginForm() {
     setData({ ...data, [e.target.name]: e.target.value })
   }
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault()
     dispatch(postLoginUser(data)).then(() => {
-      if(localStorage.getItem('access_token')) navigate('/')
+      if (localStorage.getItem('access_token')) navigate('/')
     })
   }
   return (
-    <div className='flex flex-col max-w-xs gap-4'>
+    <form onSubmit={handleLogin} className='flex flex-col max-w-xs gap-4'>
       <input
         type='text'
         className='input input-bordered'
@@ -32,9 +33,9 @@ export default function LoginForm() {
         placeholder='Password'
         onChange={handleChange}
       />
-      <button onClick={handleLogin} className='btn btn-primary'>
+      <button type='submit' className='btn btn-primary'>
         Login
       </button>
-    </div>
+    </form>
   )
 }
