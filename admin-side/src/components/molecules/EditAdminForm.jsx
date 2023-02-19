@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { editAdmin } from '../../stores/actions/actionCreator'
 
 export default function EditAdminForm({ admin, exit }) {
-  const [data, setData] = useState({ ...admin, password: '' })
+  const [data, setData] = useState({ ...admin })
   const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
@@ -45,7 +45,7 @@ export default function EditAdminForm({ admin, exit }) {
             onChange={handleChange}
           />
         </div>
-        <div className='flex flex-col my-4'>
+        {/* <div className='flex flex-col my-4'>
           <label htmlFor='password'>New Password</label>
           <input
             type='password'
@@ -55,7 +55,7 @@ export default function EditAdminForm({ admin, exit }) {
             value={data.password}
             onChange={handleChange}
           />
-        </div>
+        </div> */}
         <button onClick={exit} type='submit' className='btn btn-ghost mr-4'>
           Cancel
         </button>
