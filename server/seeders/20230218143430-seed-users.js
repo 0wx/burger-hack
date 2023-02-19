@@ -16,9 +16,9 @@ module.exports = {
     await queryInterface.bulkInsert('Users', [
       {
         name: 'Gilang Ramadhan',
-        email: 'xvnyan@gmail.com',
+        email: 'admin@gmail.com',
         role: 'superadmin',
-        password: hashSync(process.env.PASSWORD || genSaltSync(10), 10),
+        password: hashSync('12345', 10),
         createdAt: new Date(),
         updatedAt: new Date(),
       },

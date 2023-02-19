@@ -87,6 +87,11 @@ module.exports = (sequelize, DataTypes) => {
         beforeCreate: (user, options) => {
           user.password = hashSync(user.password, 10)
         },
+        beforeUpdate: (user, options) => {
+          if (user.password) {
+            user.password = hashSync(user.password, 10)
+          }
+        },
       },
     }
   )

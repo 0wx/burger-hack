@@ -58,9 +58,9 @@ class UserController {
   static async editUser(req, res, next) {
     try {
       const { id } = req.params
-      const { name, email, password } = req.body
+      const { name, email } = req.body
       const user = await User.update(
-        { name, email, password },
+        { name, email },
         { where: { id }, returning: true }
       )
       res.status(200).json(user[1][0])
