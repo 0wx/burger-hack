@@ -90,6 +90,17 @@ class ItemsController {
         where: {
           id: req.params.id,
         },
+        attributes: [
+          'id',
+          'name',
+          'description',
+          'price',
+          'imgUrl',
+          'authorId',
+          'categoryId',
+          'createdAt',
+          'updatedAt',
+        ],
         include: [
           { model: Category, as: 'category' },
           {

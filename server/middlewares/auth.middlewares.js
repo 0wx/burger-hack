@@ -17,7 +17,7 @@ const authentication = async (req, res, next) => {
 }
 
 const adminAuthorization = (req, res, next) => {
-  if (req.user.role !== 'admin' || req.user.role !== 'superadmin') {
+  if (req.user.role !== 'admin' && req.user.role !== 'superadmin') {
     throw { name: 'Unauthorized' }
   }
   next()
